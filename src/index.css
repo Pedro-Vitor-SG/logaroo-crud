@@ -1,0 +1,31 @@
+:root{
+    --arial: Arial, Helvetica, sans-serif;
+    --primary-orange: #e5843b;
+    --bg-primary-orange: #f9e6d8; 
+    --bg-primary-gray: #f1f5f8; 
+}
+
+.arial {
+    font-family: var(--arial);
+}
+.primary-orange{
+    color: var(--primary-orange);
+}
+.bg-secondary-orange{
+    background-color: var(--bg-primary-orange);
+}
+.bg-primary-orange{
+    background-color: var(--primary-orange);
+}
+.bg-primary-gray{
+    background-color: var(--bg-primary-gray);
+}
+.border-primary-orange{
+    border-color: var(--primary-orange);
+}
+.w-full{
+    width: 100% !important;
+}
+.h-full{
+    height: 100% !important;
+}
