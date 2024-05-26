@@ -1,5 +1,5 @@
 import HideSourceRoundedIcon from '@mui/icons-material/HideSourceRounded';
-
+import AddPost from './addPost';
 function Main() {
     return (
         <main className="arial bg-primary-gray pt-3 h-screen">
@@ -18,6 +18,7 @@ function Main() {
                     <button className='h-[22px] primary-orange border-b-2  border-primary-orange'>Clique aqui para cadastrar</button>
                 </div>
             </div>
+            <AddPost/>
         </main>
     )
 }
