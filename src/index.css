@@ -1,6 +1,7 @@
 :root{
     --arial: Arial, Helvetica, sans-serif;
     --primary-orange: #e5843b;
+    --primary-gray: #d7dce0;
     --bg-primary-orange: #f9e6d8; 
     --bg-primary-gray: #f1f5f8; 
 }
@@ -22,6 +23,12 @@
 }
 .border-primary-orange{
     border-color: var(--primary-orange);
+}
+.border-primary-gray{
+    border-color: var(--primary-gray);
+}
+.text-gray{
+    color: var(--primary-gray);
 }
 .w-full{
     width: 100% !important;
