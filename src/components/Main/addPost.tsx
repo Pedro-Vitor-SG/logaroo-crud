@@ -6,15 +6,28 @@ import { useState } from 'react';
 
 function AddPost({ isOpen, setModalOpen }) {
 
-    //Mudança de estado
-    const [inputValue, setInputValue] = useState();
+    const [inputValues, setInputValues] = useState({
+        title: '',
+        content: '',
+        status: true,
+    });
 
-    function handleChange(e) {
-        setInputValue(
-            console.log(e.target.value)
-        );
-    }
-    //Mudança de estado
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setInputValues({
+            ...inputValues,
+            [name]: value
+        });
+    };
+
+    const handleClick = () => {
+        console.log(inputValues);
+        // Aqui você pode fazer o que quiser com o valor do input
+
+        console.log('Chama o componente com os cadastros')
+    };
+
 
     if (isOpen) {
         return (
@@ -29,13 +42,32 @@ function AddPost({ isOpen, setModalOpen }) {
                 <div className='border-b-2 border-primary-gray pt-2'>
                     <form>
                         <Fieldset fieldName="Titulo *">
-                            <input placeholder="Adicionar Children" value={inputValue} onChange={handleChange} type="text" className='border-2 bborder-primary-gray block w-full pl-3 py-2 rounded outline-0' />
+                            <input 
+                                placeholder="Adicionar Children"
+                                type="text"
+                                name='title'
+                                value={inputValues.title}
+                                onChange={handleChange}
+                                className='border-2 bborder-primary-gray block w-full pl-3 py-2 rounded outline-0' />
                         </Fieldset>
+
                         <Fieldset fieldName="Conteúdo *">
-                            <textarea value={inputValue} onChange={handleChange} placeholder='Adicionar conteúdo do post' className='border-2 border-primary-gray block w-full pl-3 py-2 rounded outline-0 h-[250px]' />
+                            <textarea 
+                                placeholder='Adicionar conteúdo do post' 
+                                type="text"
+                                name='content'
+                                value={inputValues.content}
+                                onChange={handleChange}  
+                                className='border-2 border-primary-gray block w-full pl-3 py-2 rounded outline-0 h-[250px]' />
                         </Fieldset>
+                        
                         <Fieldset fieldName="Status *">
-                            <select value={inputValue} onChange={handleChange} className='block border-2 border-primary-gray w-full h-[40px] px-3 py-2'>
+                            <select 
+                                value={inputValues.status}
+                                name='status'
+                                onChange={handleChange} 
+                                className='block border-2 border-primary-gray w-full h-[40px] px-3 py-2'>
+
                                 <option value="Ativo">Ativo</option>
                                 <option value="Inativo">Inativo</option>
                             </select>
@@ -45,7 +77,7 @@ function AddPost({ isOpen, setModalOpen }) {
 
                 <div className='pt-3 flex gap-2 justify-end items-center'>
                     <button className='text-gray border-b-2 border-primary-gray h-[25px]' onClick={setModalOpen}>Cancelar</button>
-                    <button className='bg-primary-orange text-white px-4 py-2 rounded'>Salvar</button>
+                    <button className='bg-primary-orange text-white px-4 py-2 rounded' onClick={handleClick}>Salvar</button>
                 </div>
             </aside>
         )
